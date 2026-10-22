@@ -1,0 +1,15 @@
+# 의존성·빌드 결과
+node_modules/
+dist/
+
+# 비밀 값 (배포 서비스의 환경 변수 화면에 직접 입력)
+.env
+.env.*
+!.env.example
+
+# OS·에디터
+.DS_Store
+.vscode/*
+!.vscode/extensions.json
+.idea/
+*.log

@@ -1,0 +1,9 @@
+import { createContext, useContext } from 'react'
+
+export const ToastContext = createContext(null)
+
+export function useToast() {
+  const context = useContext(ToastContext)
+  if (!context) throw new Error('useToast는 ToastProvider 안에서만 사용할 수 있습니다.')
+  return context
+}

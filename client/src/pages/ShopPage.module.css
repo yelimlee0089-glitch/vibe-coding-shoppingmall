@@ -1,0 +1,97 @@
+.toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 24px;
+  padding: 0 var(--header-gutter) 16px;
+}
+
+/* 화면에는 숨기고 스크린리더에만 읽힘 */
+.visuallyHidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+/* ALL PRODUCTS · APPAREL · ACCESSORIES · MEDITATION · BOOKS&JOURNALS */
+.tabs {
+  display: flex;
+  gap: 28px;
+  min-width: 0;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.tabs::-webkit-scrollbar {
+  display: none;
+}
+
+.tab {
+  flex-shrink: 0;
+  padding-bottom: 2px;
+  font-size: 15px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: var(--color-muted);
+  transition: color 0.2s;
+}
+
+.tab:hover {
+  color: var(--color-text);
+}
+
+.tab[aria-current='page'] {
+  color: var(--color-text);
+  text-decoration: underline;
+  text-underline-offset: 5px;
+  text-decoration-thickness: 1px;
+}
+
+.count {
+  color: var(--color-muted);
+}
+
+.filterButton {
+  flex-shrink: 0;
+  display: inline-flex;
+  gap: 10px;
+  font-size: 13px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.status {
+  margin: 0;
+  padding: 48px var(--header-gutter);
+  text-align: center;
+  color: var(--color-muted);
+}
+
+.error {
+  color: var(--color-error);
+}
+
+@media (max-width: 767px) {
+  .toolbar {
+    gap: 16px;
+  }
+
+  .tabs {
+    gap: 20px;
+  }
+
+  .tab {
+    font-size: 13px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tab {
+    transition: none;
+  }
+}

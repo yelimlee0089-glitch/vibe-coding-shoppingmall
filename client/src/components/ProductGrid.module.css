@@ -1,0 +1,12 @@
+.grid {
+  display: grid;
+  /* 한 페이지 4개가 한 줄에 딱 맞도록 4열 (모바일은 2열 × 2줄) */
+  grid-template-columns: repeat(4, 1fr);
+  column-gap: var(--grid-gap);
+}
+
+@media (max-width: 899px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

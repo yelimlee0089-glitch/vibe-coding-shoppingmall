@@ -1,0 +1,150 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: grid;
+  /* 로고 너비만큼만 차지하고, 메뉴는 로고 바로 옆에서 시작 */
+  grid-template-columns: auto 1fr;
+  column-gap: 20px;
+  align-items: start;
+  padding: 36px var(--header-gutter) 28px;
+  background: var(--color-bg);
+}
+
+/* 메인 페이지: 배경 없이 화면 위에 떠 있는 헤더 */
+.overlay {
+  position: fixed;
+  inset: 0 0 auto;
+  background: transparent;
+  pointer-events: none;
+}
+
+.overlay a,
+.overlay button {
+  pointer-events: auto;
+}
+
+.wordmark {
+  justify-self: start;
+  font-size: clamp(40px, 5.3vw, 78px);
+  font-weight: 400;
+  line-height: 0.95;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  padding-top: 8px;
+}
+
+.primary,
+.secondary {
+  display: flex;
+  gap: 30px;
+  font-size: 15px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.nav a,
+.nav button,
+.drawerList a,
+.drawerList button {
+  text-transform: uppercase;
+  transition: opacity 0.2s;
+}
+
+.nav a:hover,
+.nav button:hover,
+.drawerList a:hover,
+.drawerList button:hover {
+  opacity: 0.55;
+}
+
+/* 현재 페이지 메뉴에 밑줄 */
+.nav a[aria-current='page'],
+.drawerList a[aria-current='page'] {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-thickness: 1px;
+}
+
+/* 이름은 대문자로 바꾸지 않음 */
+.userName {
+  text-transform: none;
+}
+
+.menuButton,
+.drawer {
+  display: none;
+}
+
+/* 모바일 */
+@media (max-width: 899px) {
+  .header {
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    padding-top: 20px;
+    padding-bottom: 16px;
+  }
+
+  .wordmark {
+    font-size: 28px;
+  }
+
+  .nav {
+    display: none;
+  }
+
+  .menuButton {
+    display: block;
+    font-size: 13px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .drawer {
+    position: fixed;
+    inset: 0;
+    z-index: 20;
+    display: flex;
+    flex-direction: column;
+    padding: 20px var(--header-gutter) 40px;
+    background: var(--color-bg);
+    pointer-events: auto;
+    transform: translateY(-100%);
+    visibility: hidden;
+    transition: transform 0.35s ease, visibility 0.35s;
+  }
+
+  .drawerOpen {
+    transform: translateY(0);
+    visibility: visible;
+  }
+
+  .drawerTop {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .drawerList {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-top: auto;
+    font-size: 34px;
+    line-height: 1.1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .drawer {
+    transition: none;
+  }
+}

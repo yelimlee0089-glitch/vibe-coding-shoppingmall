@@ -1,0 +1,208 @@
+.home {
+  position: relative;
+  min-height: 100vh;
+  min-height: 100svh;
+}
+
+/* 고정 배경: 가운데 문구 + 왼쪽 아래 소개 문구 + 오른쪽 아래 마크 */
+.stage {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0 var(--header-gutter);
+  pointer-events: none;
+}
+
+.headline {
+  margin: 0;
+  font-family: var(--font-serif);
+  font-size: clamp(22px, 2.3vw, 32px);
+  font-style: italic;
+  letter-spacing: -0.01em;
+  text-align: center;
+}
+
+.hint {
+  margin: 64px 0 0;
+  font-size: 12px;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  transition: opacity 0.4s;
+}
+
+.hidden {
+  opacity: 0;
+}
+
+.empty {
+  margin: 24px 0 0;
+  color: var(--color-muted);
+}
+
+.tagline {
+  position: absolute;
+  left: var(--header-gutter);
+  bottom: 36px;
+  margin: 0;
+  font-size: clamp(15px, 1.95vw, 28px);
+  line-height: 1.32;
+  letter-spacing: 0.005em;
+  text-transform: uppercase;
+}
+
+.mark {
+  position: absolute;
+  right: var(--header-gutter);
+  bottom: 36px;
+  font-size: clamp(22px, 2.6vw, 38px);
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+
+.mark sup {
+  font-size: 0.32em;
+  font-weight: 400;
+  vertical-align: top;
+}
+
+/* 상품 트랙: 첫 화면을 비워 두고 그 아래부터 상품이 올라옴 */
+.track {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 38vh;
+  padding: 100vh 0 70vh;
+}
+
+.item {
+  display: flex;
+  align-items: flex-end;
+  gap: 20px;
+  width: max-content;
+  max-width: calc(100% - var(--header-gutter) * 2);
+  margin-left: var(--x);
+  opacity: 0;
+  transform: translateY(48px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.visible {
+  opacity: 1;
+  transform: none;
+}
+
+.image,
+.swatch {
+  display: block;
+  width: clamp(220px, 27vw, 400px);
+  aspect-ratio: 4 / 5;
+  border-radius: 6px;
+  box-shadow: 0 24px 48px -24px rgb(60 45 10 / 0.45);
+}
+
+.image {
+  object-fit: cover;
+}
+
+.swatch {
+  position: relative;
+}
+
+.swatchLabel {
+  position: absolute;
+  left: 14px;
+  bottom: 12px;
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: rgb(255 255 255 / 0.85);
+}
+
+.swatchLight .swatchLabel {
+  color: rgb(26 26 26 / 0.6);
+}
+
+.caption {
+  max-width: 200px;
+  padding-bottom: 4px;
+}
+
+.name {
+  margin: 0 0 6px;
+  font-family: var(--font-serif);
+  font-size: 18px;
+  font-style: italic;
+  line-height: 1.25;
+}
+
+.meta {
+  margin: 0 0 8px;
+  font-size: 11px;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.more {
+  font-size: 11px;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.more:hover {
+  opacity: 0.55;
+}
+
+@media (max-width: 899px) {
+  .tagline,
+  .mark {
+    bottom: 24px;
+  }
+
+  .tagline {
+    font-size: 13px;
+  }
+
+  .mark {
+    font-size: 20px;
+  }
+
+  .hint {
+    margin-top: 40px;
+  }
+
+  .track {
+    gap: 26vh;
+  }
+
+  /* 모바일은 가로 공간이 좁아 캡션을 이미지 아래로 */
+  .item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    margin-left: calc(var(--x) * 0.45 + var(--header-gutter));
+  }
+
+  .image,
+  .swatch {
+    width: 58vw;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .item,
+  .hint {
+    transition: none;
+  }
+
+  .item {
+    transform: none;
+  }
+}

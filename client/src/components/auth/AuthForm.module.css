@@ -1,0 +1,174 @@
+.page {
+  display: flex;
+  justify-content: center;
+  padding: 64px var(--header-gutter) 96px;
+}
+
+.container {
+  width: 100%;
+  max-width: 400px;
+}
+
+.title {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.description {
+  margin: 8px 0 32px;
+  color: var(--color-muted);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.field label {
+  font-size: 12px;
+}
+
+/* 입력창 오른쪽에 '보기' 같은 버튼을 둘 때 사용 */
+.inputWrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.inputAction {
+  position: absolute;
+  right: 0;
+  padding: 4px 0 4px 8px;
+  font-size: 12px;
+  color: var(--color-muted);
+}
+
+.inputAction:hover {
+  color: var(--color-text);
+}
+
+.inputWrap:has(.inputAction) input {
+  padding-right: 48px;
+}
+
+.optional {
+  color: var(--color-muted);
+}
+
+.field input {
+  width: 100%;
+  padding: 10px 0;
+  font: inherit;
+  font-size: 14px;
+  color: var(--color-text);
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid var(--color-border);
+  border-radius: 0;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.field input::placeholder {
+  color: #b5b3ae;
+}
+
+.field input:focus {
+  border-bottom-color: var(--color-text);
+}
+
+.field input[aria-invalid='true'] {
+  border-bottom-color: var(--color-error);
+}
+
+.fieldError,
+.submitError {
+  margin: 0;
+  font-size: 12px;
+  color: var(--color-error);
+}
+
+.submitError {
+  padding: 10px 12px;
+  background: #fbeceb;
+}
+
+.submit {
+  display: block;
+  width: 100%;
+  margin-top: 12px;
+  padding: 14px;
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  text-align: center;
+  color: #fff;
+  background: var(--color-text);
+  transition: opacity 0.2s;
+}
+
+.submit:hover:not(:disabled) {
+  opacity: 0.85;
+}
+
+.submit:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.secondary {
+  display: block;
+  width: 100%;
+  padding: 13px;
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  text-align: center;
+  border: 1px solid var(--color-text);
+  transition: background 0.2s, color 0.2s;
+}
+
+.secondary:hover {
+  color: #fff;
+  background: var(--color-text);
+}
+
+.spaced {
+  margin-top: 12px;
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 40px 0 16px;
+  font-size: 12px;
+  color: var(--color-muted);
+}
+
+.divider::before,
+.divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--color-border);
+}
+
+@media (max-width: 767px) {
+  .page {
+    padding-top: 40px;
+  }
+
+  /* iOS에서 입력창 포커스 시 화면이 확대되지 않도록 16px 유지 */
+  .field input {
+    font-size: 16px;
+  }
+}

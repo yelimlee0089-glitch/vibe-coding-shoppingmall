@@ -1,0 +1,171 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 24px var(--header-gutter) 96px;
+}
+
+.hero {
+  padding-bottom: 16px;
+  text-align: center;
+}
+
+.title {
+  margin: 0;
+  font-family: var(--font-serif);
+  font-size: clamp(32px, 4vw, 48px);
+  font-style: italic;
+  font-weight: 400;
+}
+
+.lead {
+  margin: 12px 0 0;
+  font-size: 15px;
+}
+
+.orderNumber {
+  margin: 8px 0 0;
+  font-size: 13px;
+  color: var(--color-muted);
+}
+
+.orderNumber strong {
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--color-text);
+}
+
+.muted {
+  color: var(--color-muted);
+}
+
+.number {
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 24px;
+  border: 1px solid var(--color-border);
+}
+
+.cardTitle {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.items {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.item {
+  display: grid;
+  grid-template-columns: 52px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 12px;
+  font-size: 13px;
+}
+
+.thumb {
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  background: var(--color-placeholder);
+}
+
+.thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.itemInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.itemInfo .muted {
+  font-size: 12px;
+}
+
+.rows {
+  margin: 0;
+  border-top: 1px solid var(--color-border);
+}
+
+.rows div {
+  display: grid;
+  grid-template-columns: 96px minmax(0, 1fr);
+  gap: 12px;
+  padding: 10px 0 0;
+  font-size: 13px;
+}
+
+.rows dt {
+  color: var(--color-muted);
+}
+
+.rows dd {
+  margin: 0;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.rows .totalRow {
+  margin-top: 6px;
+  padding-top: 14px;
+  font-size: 16px;
+  border-top: 1px solid var(--color-border);
+}
+
+.rows .totalRow dt {
+  color: var(--color-text);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+.primaryButton,
+.secondaryButton {
+  display: inline-block;
+  padding: 14px 32px;
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  text-align: center;
+}
+
+.primaryButton {
+  color: var(--color-bg);
+  background: var(--color-text);
+}
+
+.secondaryButton {
+  align-self: center;
+  border: 1px solid var(--color-text);
+}
+
+.secondaryButton:hover {
+  background: rgb(26 26 26 / 0.05);
+}
+
+.primaryButton:hover {
+  opacity: 0.85;
+}

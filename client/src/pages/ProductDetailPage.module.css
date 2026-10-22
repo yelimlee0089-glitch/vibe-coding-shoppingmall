@@ -1,0 +1,306 @@
+.detail {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+  gap: clamp(32px, 5vw, 80px);
+  padding: 0 var(--header-gutter) 80px 0;
+}
+
+.media {
+  aspect-ratio: 662 / 913;
+  overflow: hidden;
+  background: var(--color-placeholder);
+}
+
+.image,
+.placeholder {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* 스크롤해도 상품 정보가 화면에 머무름 */
+.info {
+  position: sticky;
+  top: 140px;
+  align-self: start;
+  display: flex;
+  flex-direction: column;
+  max-width: 420px;
+  padding-top: 8px;
+}
+
+.breadcrumb {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 40px;
+  font-size: 12px;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+
+.breadcrumb a:hover {
+  color: var(--color-text);
+}
+
+.name {
+  margin: 0;
+  font-family: var(--font-serif);
+  font-size: clamp(26px, 2.6vw, 38px);
+  font-style: italic;
+  font-weight: 400;
+  line-height: 1.15;
+}
+
+.color {
+  margin: 10px 0 0;
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+
+.price {
+  margin: 20px 0 0;
+  font-size: 18px;
+  font-variant-numeric: tabular-nums;
+}
+
+.description {
+  margin: 28px 0 0;
+  font-size: 14px;
+  line-height: 1.7;
+  white-space: pre-line;
+}
+
+.sizes {
+  margin: 32px 0 0;
+  padding: 0;
+  border: 0;
+}
+
+.sizes legend {
+  margin-bottom: 10px;
+  padding: 0;
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.sizeOptions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.sizeOption {
+  position: relative;
+  cursor: pointer;
+}
+
+/* 라디오 버튼은 숨기고 키보드·스크린리더 접근은 유지 */
+.sizeOption input {
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+}
+
+.sizeOption span {
+  display: grid;
+  place-items: center;
+  min-width: 48px;
+  height: 40px;
+  padding: 0 12px;
+  font-size: 13px;
+  border: 1px solid var(--color-border);
+  transition: border-color 0.2s, background 0.2s, color 0.2s;
+}
+
+.sizeOption:hover span {
+  border-color: var(--color-text);
+}
+
+.sizeOption input:checked + span {
+  color: var(--color-bg);
+  background: var(--color-text);
+  border-color: var(--color-text);
+}
+
+.sizeOption input:focus-visible + span {
+  outline: 1px solid var(--color-text);
+  outline-offset: 2px;
+}
+
+.sizeError {
+  margin: 8px 0 0;
+  font-size: 12px;
+  color: var(--color-error);
+}
+
+.quantityRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 32px;
+}
+
+.label {
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.stepper {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid var(--color-border);
+}
+
+.stepper button {
+  width: 40px;
+  height: 40px;
+  font-size: 16px;
+}
+
+.stepper button:hover:not(:disabled) {
+  background: rgb(26 26 26 / 0.05);
+}
+
+.stepper button:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.stepper input {
+  width: 44px;
+  height: 40px;
+  padding: 0;
+  font: inherit;
+  font-size: 14px;
+  font-variant-numeric: tabular-nums;
+  text-align: center;
+  color: var(--color-text);
+  background: transparent;
+  border: 0;
+  border-left: 1px solid var(--color-border);
+  border-right: 1px solid var(--color-border);
+  border-radius: 0;
+}
+
+.stepper input:focus {
+  outline: 1px solid var(--color-text);
+  outline-offset: -1px;
+}
+
+.total {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0 0;
+  padding-top: 16px;
+  font-size: 15px;
+  font-variant-numeric: tabular-nums;
+  border-top: 1px solid var(--color-border);
+}
+
+.total span:first-child {
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+
+.addToCart {
+  margin-top: 20px;
+  padding: 16px;
+  font-size: 13px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-bg);
+  background: var(--color-text);
+  transition: opacity 0.2s;
+}
+
+.addToCart:hover:not(:disabled) {
+  opacity: 0.85;
+}
+
+.addToCart:disabled {
+  opacity: 0.5;
+  cursor: wait;
+}
+
+.viewCart {
+  align-self: center;
+  margin-top: 14px;
+  font-size: 12px;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  color: var(--color-muted);
+}
+
+.viewCart:hover {
+  color: var(--color-text);
+}
+
+.related {
+  padding-bottom: 64px;
+}
+
+.relatedTitle {
+  margin: 0;
+  padding: 0 var(--header-gutter) 16px;
+  font-size: 15px;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.message {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  margin: 0;
+  padding: 96px var(--header-gutter);
+  color: var(--color-muted);
+}
+
+.message p {
+  margin: 0;
+}
+
+.textLink {
+  color: var(--color-text);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+@media (max-width: 899px) {
+  .detail {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    padding: 0 0 56px;
+  }
+
+  .info {
+    position: static;
+    max-width: none;
+    padding: 0 var(--header-gutter);
+  }
+
+  .breadcrumb {
+    order: -1;
+    margin-bottom: 20px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sizeOption span,
+  .addToCart {
+    transition: none;
+  }
+}
