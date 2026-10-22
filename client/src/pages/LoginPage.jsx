@@ -104,6 +104,9 @@ function LoginPage() {
           <button type="submit" className={styles.submit} disabled={isSubmitting}>
             {isSubmitting ? '로그인 중...' : '로그인'}
           </button>
+          <Link to="/forgot-password" className={styles.forgotLink}>
+            비밀번호를 잊으셨나요?
+          </Link>
         </form>
 
         <p className={styles.divider}>아직 회원이 아니신가요?</p>

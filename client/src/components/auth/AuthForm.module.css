@@ -92,6 +92,28 @@
 }
 
 .fieldError,
+.alertText {
+  margin: 0 0 6px;
+}
+
+.alertLink {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.forgotLink {
+  align-self: center;
+  font-size: 12px;
+  color: var(--color-muted);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.forgotLink:hover {
+  color: var(--color-text);
+}
+
 .submitError {
   margin: 0;
   font-size: 12px;

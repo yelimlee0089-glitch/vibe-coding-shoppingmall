@@ -28,8 +28,12 @@ export async function requireAuth(req, res, next) {
     }
 
     // 토큰 발급 후 탈퇴(삭제)된 사용자는 거부
-    const user = await User.findById(payload.sub);
+    const user = await User.findById(payload.sub).select('+tokenVersion');
     if (!user) throw unauthorized();
+    // 비밀번호를 바꾸기 전에 발급된 토큰은 거부 (비밀번호 재설정 시 다른 기기 로그아웃)
+    if ((payload.ver ?? 0) !== (user.tokenVersion ?? 0)) {
+      throw unauthorized('비밀번호가 변경되어 다시 로그인해야 합니다.');
+    }
 
     req.user = user;
     next();

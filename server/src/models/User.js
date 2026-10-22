@@ -22,8 +22,18 @@ const userSchema = new mongoose.Schema(
       default: 'customer',
     },
     address: { type: String, trim: true, default: '' },
+    // 비밀번호 재설정: 메일로 보낸 토큰의 해시만 저장 (원래 토큰은 DB에 남기지 않음)
+    passwordResetTokenHash: { type: String, select: false },
+    passwordResetExpires: { type: Date, select: false },
+    passwordResetRequestedAt: { type: Date, select: false },
+    // 비밀번호를 바꾼 시각 (기록용)
+    passwordChangedAt: { type: Date, select: false },
+    // 로그인 토큰 버전. 비밀번호를 바꾸면 1 올라가서 이전에 발급된 로그인이 모두 무효 (다른 기기 로그아웃)
+    tokenVersion: { type: Number, default: 0, select: false },
   },
   { timestamps: true }
 );
+
+userSchema.index({ passwordResetTokenHash: 1 }, { sparse: true });
 
 export default mongoose.model('User', userSchema);

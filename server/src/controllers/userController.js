@@ -14,9 +14,17 @@ function pick(body, fields) {
   );
 }
 
-// 응답에 비밀번호가 절대 포함되지 않도록 제거
+// 응답에 비밀번호·재설정 정보가 절대 포함되지 않도록 제거
 export function toUserResponse(user) {
-  const { password, ...rest } = user.toObject();
+  const {
+    password,
+    passwordResetTokenHash,
+    passwordResetExpires,
+    passwordResetRequestedAt,
+    passwordChangedAt,
+    tokenVersion,
+    ...rest
+  } = user.toObject();
   return rest;
 }
 

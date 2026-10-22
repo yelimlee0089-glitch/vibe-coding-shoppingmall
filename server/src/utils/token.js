@@ -12,7 +12,7 @@ function getSecret() {
 }
 
 export function signToken(user) {
-  return jwt.sign({ sub: user._id.toString(), user_type: user.user_type }, getSecret(), {
+  return jwt.sign({ sub: user._id.toString(), user_type: user.user_type, ver: user.tokenVersion ?? 0 }, getSecret(), {
     expiresIn: process.env.JWT_EXPIRES_IN || DEFAULT_EXPIRES_IN,
   });
 }

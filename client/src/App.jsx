@@ -11,6 +11,7 @@ import ProductListPage from '@/pages/admin/ProductListPage'
 import ProductNewPage from '@/pages/admin/ProductNewPage'
 import CartPage from '@/pages/CartPage'
 import CheckoutPage from '@/pages/CheckoutPage'
+import ForgotPasswordPage from '@/pages/ForgotPasswordPage'
 import HomePage from '@/pages/HomePage'
 import LoginPage from '@/pages/LoginPage'
 import MyOrdersPage from '@/pages/MyOrdersPage'
@@ -18,6 +19,7 @@ import NotFoundPage from '@/pages/NotFoundPage'
 import OrderCompletePage from '@/pages/OrderCompletePage'
 import PaymentResultPage from '@/pages/PaymentResultPage'
 import ProductDetailPage from '@/pages/ProductDetailPage'
+import ResetPasswordPage from '@/pages/ResetPasswordPage'
 import ShopPage from '@/pages/ShopPage'
 import SignupPage from '@/pages/SignupPage'
 
@@ -34,6 +36,8 @@ function App() {
               <Route path="/products/:id" element={<ProductDetailPage />} />
               <Route path="/login" element={<LoginPage />} />
               <Route path="/signup" element={<SignupPage />} />
+              <Route path="/forgot-password" element={<ForgotPasswordPage />} />
+              <Route path="/reset-password" element={<ResetPasswordPage />} />
               <Route element={<RequireAuth />}>
                 <Route path="/cart" element={<CartPage />} />
                 <Route path="/checkout" element={<CheckoutPage />} />
