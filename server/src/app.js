@@ -13,7 +13,8 @@ app.set('trust proxy', 1);
 // credentials: 로그인 쿠키를 주고받기 위해 필요 (이때 origin 에 '*' 는 사용할 수 없음)
 const allowedOrigins = (process.env.CLIENT_URL || 'http://localhost:5173')
   .split(',')
-  .map((origin) => origin.trim())
+  // 끝에 붙은 / 는 무시 (https://내앱.vercel.app/ 로 넣어도 동작하도록)
+  .map((origin) => origin.trim().replace(/\/+$/, ''))
   .filter(Boolean);
 app.use(cors({ origin: allowedOrigins, credentials: true }));
 app.use(express.json());
